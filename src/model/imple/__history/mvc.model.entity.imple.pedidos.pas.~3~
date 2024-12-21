@@ -1,0 +1,80 @@
+unit mvc.model.entity.imple.pedidos;
+
+interface
+
+uses
+  mvc.model.entity.interfaces;
+
+type
+  TProdutos = class(TInterfacedObject, iPedidos)
+  private
+    FNumeroPedido: Integer;
+    FDataEmissao: TDateTime;
+    FCodigoCliente: integer;
+    FValorTotal: Currency;
+  public
+    class function New: iPedidos;
+    function SetNumeroPedido(const value: integer): iPedidos;
+    function GetNumeroPedido: integer;
+    function SetDataEmissao(const value: TDateTime): iPedidos;
+    function GetDataEmissao: TDateTime;
+    function SetCodigoCliente(const value: integer): iPedidos;
+    function GetCodigoCliente: integer;
+    function SetValorTotal(const value: Currency): iPedidos;
+    function GetValorTotal: Currency;
+  end;
+
+implementation
+
+{ TProdutos }
+
+function TProdutos.GetCodigoCliente: integer;
+begin
+  Result := FCodigoCliente
+end;
+
+function TProdutos.GetDataEmissao: TDateTime;
+begin
+  Result := FDataEmissao;
+end;
+
+function TProdutos.GetNumeroPedido: integer;
+begin
+  Result := FNumeroPedido
+end;
+
+function TProdutos.GetValorTotal: Currency;
+begin
+  Result := FValorTotal
+end;
+
+class function TProdutos.New: iPedidos;
+begin
+  Result := self.Create;
+end;
+
+function TProdutos.SetCodigoCliente(const value: integer): iPedidos;
+begin
+  Result := self;
+  FCodigoCliente := value;
+end;
+
+function TProdutos.SetDataEmissao(const value: TDateTime): iPedidos;
+begin
+  Result := self;
+  FDataEmissao := value;
+end;
+
+function TProdutos.SetNumeroPedido(const value: integer): iPedidos;
+begin
+  Result := self;
+  FNumeroPedido := value;
+end;
+
+function TProdutos.SetValorTotal(const value: Currency): iPedidos;
+begin
+  Result := self;
+  FValorTotal := value;
+end;
+
+end.

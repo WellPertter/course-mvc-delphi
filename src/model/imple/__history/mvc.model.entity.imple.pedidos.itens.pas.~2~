@@ -1,0 +1,33 @@
+unit mvc.model.entity.imple.pedidos.itens;
+
+interface
+
+uses
+  mvc.model.entity.interfaces;
+
+type
+  TPedidosItens = class(TInterfacedObject, iPedidosItens)
+  private
+    FCodigo: Integer;
+    FDescricao: string;
+    FPrecoVenda: Currency;
+  public
+    class function New: iProdutos;
+    function SetId(const value: integer): iPedidosItens;
+    function GetId: integer;
+    function SetNumeroPedido(const value: integer): iPedidosItens;
+    function GetNumeroPedido: integer;
+    function SetCodigoProduto(const value: integer): iPedidosItens;
+    function GetCodigoProduto: integer;
+    function SetQuantidade(const value: integer): iPedidosItens;
+    function GetQuantidade: integer;
+    function SetValorUnitario(const value: Currency): iPedidosItens;
+    function GetValorUnitario: Currency;
+    function SetValorTotal(const value: Currency): iPedidosItens;
+    function GetValorTotal: Currency;
+  end;
+
+
+implementation
+
+end.

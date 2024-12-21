@@ -1,0 +1,29 @@
+unit mvc.model.entity.imple.pedidos;
+
+interface
+
+uses
+  mvc.model.entity.interfaces;
+
+type
+  TProdutos = class(TInterfacedObject, iPedidos)
+  private
+    FNumeroPedido: Integer;
+    FDataEmissao: TDateTime;
+    FCodigoCliente: integer;
+    FValorTotal: Currency;
+  public
+    class function New: iProdutos;
+    function SetNumeroPedido(const value: integer): iPedidos;
+    function GetNumeroPedido: integer;
+    function SetDataEmissao(const value: TDateTime): iPedidos;
+    function GetDataEmissao: TDateTime;
+    function SetCodigoCliente(const value: integer): iPedidos;
+    function GetCodigoCliente: integer;
+    function SetValorTotal(const value: Currency): iPedidos;
+    function GetValorTotal: Currency;
+  end;
+
+implementation
+
+end.

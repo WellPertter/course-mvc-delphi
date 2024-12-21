@@ -1,0 +1,30 @@
+unit mvc.model.entity.interfaces;
+
+interface
+
+type
+  iCliente = interface
+    ['{A49C5146-5268-413A-BA67-DB2F046C8081}']
+    function SetCodigo(value: integer): iCliente;
+    function GetCodigo: integer;
+    function SetNome(value: string): iCliente;
+    function GetNome: string;
+    function SetCidade(value: string): iCliente;
+    function GetCidade: string;
+    function SetEstado(value: string): iCliente;
+    function GetEstado: string;
+  end;
+
+  iProdutos = interface
+    ['{CA0CB659-4A33-4A71-B76E-9657358A04AA}']
+    function SetCodigo(value: integer): iCliente;
+    function GetCodigo: integer;
+    function SetDescricao(value: string): iCliente;
+    function GetDescricao: string;
+    function SetPrecoVenda(value: Currency): iCliente;
+    function GetPrecoVenda: Currency;
+  end;
+
+implementation
+
+end.
