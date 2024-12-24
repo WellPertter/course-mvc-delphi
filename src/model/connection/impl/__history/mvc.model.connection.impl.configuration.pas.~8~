@@ -1,0 +1,66 @@
+unit mvc.model.connection.impl.configuration;
+
+interface
+
+uses
+  System.SysUtils,
+  IniFiles,
+  mvc.model.connection.interfaces;
+
+type
+  TConfiguration = class(TInterfacedObject, iConfiguration)
+  const
+    SECTION = 'CONFIG';
+    CAMINHO = 'CAMINHO';
+    PORTA = 'PORTA';
+    SERVIDOR = 'SERVIDOR';
+    USUARIO = 'USERNAME';
+    SENHA = 'PASSWORD';
+    DRIVERNAME = 'DRIVE';
+
+  private
+    Farq: TiniFile;
+
+    constructor Create(fileName: string);
+    destructor Destroy; override;
+  public
+    class function New(fileName: string): iConfiguration;
+
+    function GetProtocolo: string;
+    function SetServidor(const Value: string): iConfiguration;
+    function GetServidor: string;
+    function SetPorta(const Value: Integer): iConfiguration;
+    function GetPorta: Integer;
+    function SetUsuario(const Value: string): iConfiguration;
+    function GetUsuario: string;
+    function SetSenha(const Value: string): iConfiguration;
+    function GetSenha: string;
+    function SetCaminho(const Value: string): iConfiguration;
+    function GetCaminho: string;
+    function SetDriverName(const Value: string): iConfiguration;
+    function GetDriverName: string;
+  end;
+implementation
+
+{ TConfiguration }
+
+
+{ TConfiguration }
+
+constructor TConfiguration.Create(fileName: string);
+begin
+
+end;
+
+destructor TConfiguration.Destroy;
+begin
+
+  inherited;
+end;
+
+class function TConfiguration.New(fileName: string): iConfiguration;
+begin
+  Result := self.Create;
+end;
+
+end.

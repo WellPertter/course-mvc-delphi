@@ -135,6 +135,8 @@
         <DCCReference Include="..\src\model\imple\mvc.model.entity.imple.entity.pas"/>
         <DCCReference Include="..\src\model\connection\mvc.model.connection.interfaces.pas"/>
         <DCCReference Include="..\src\model\connection\impl\mvc.model.connection.impl.firedac.pas"/>
+        <DCCReference Include="..\src\model\connection\impl\mvc.model.connection.impl.firedac.query.pas"/>
+        <DCCReference Include="..\src\model\connection\impl\mvc.model.connection.impl.configuration.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

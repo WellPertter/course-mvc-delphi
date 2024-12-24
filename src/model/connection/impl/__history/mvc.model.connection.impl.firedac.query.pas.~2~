@@ -1,0 +1,71 @@
+unit mvc.model.connection.impl.firedac.query;
+
+interface
+
+uses
+  mvc.model.connection.interfaces,
+  Data.DB,
+  FireDAC.Comp.Client;
+
+type
+  TQuery = class(TInterfacedObject, iQuery)
+  private
+    FQuery: TFDQuery;
+
+    procedure PreenchQuery(Value: String);
+    procedure PreenchParams(Value: array of Variant);
+
+
+    constructor Create(Conn: iConnection);
+    destructor Destroy; override;
+  public
+    class function New: iQuery;
+    procedure Query(const Statement: String; Params: Array of Variant); overload;
+    function Query(const Variant: String; Params: Array of Variant): TDataSet; overload;
+  end;
+
+implementation
+
+{ TQuery }
+
+constructor TQuery.Create(Conn: iConnection);
+begin
+  FQuery :=  TFDQuery.create(nil);
+  FQuery.Connection := TFDConnection(Conn.Connection);
+end;
+
+destructor TQuery.Destroy;
+begin
+  FQuery.free;
+  inherited;
+end;
+
+class function TQuery.New: iQuery;
+begin
+  Result := TQuery.create;
+end;
+
+procedure TQuery.PreenchParams(Value: array of Variant);
+begin
+
+end;
+
+procedure TQuery.PreenchQuery(Value: String);
+begin
+  FQuery.close;
+  FQuery.SQL.Clear;
+  FQuery.SQL.Add(Value);
+end;
+
+function TQuery.Query(const Variant: String;
+  Params: array of Variant): TDataSet;
+begin
+
+end;
+
+procedure TQuery.Query(const Statement: String; Params: array of Variant);
+begin
+
+end;
+
+end.

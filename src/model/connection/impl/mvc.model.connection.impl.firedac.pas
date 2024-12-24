@@ -4,16 +4,19 @@ interface
 
 uses
   Data.DB,
-  System.SysUtils,
   FireDAC.Comp.Client,
   FireDAC.Comp.DataSet,
   FireDAC.Comp.UI,
-  mvc.model.connection.interfaces;
+  mvc.model.connection.interfaces,
+  mvc.model.connection.impl.configuration,
+  System.SysUtils;
 
 type
   TConnectionFireDac = class(TInterfacedObject, iConnection)
   private
     Fconn : TFDConnection;
+    Fconf: iConfiguration;
+
     constructor Create;
     destructor Destroy; override;
   public
@@ -22,6 +25,7 @@ type
   end;
 
 implementation
+
 
 { TConnectionFireDac }
 
@@ -33,7 +37,17 @@ end;
 constructor TConnectionFireDac.Create;
 begin
   Fconn := TFDConnection.Create(nil);
+  Fconf := TConfiguration.New(ExtractFilePath(ParamStr(0)));
   try
+    Fconn.Params.Clear;
+    Fconn.Params.DriverID := Fconf.GetDriverName;
+    Fconn.Params.UserName := Fconf.GetUsuario;
+    Fconn.Params.Password := Fconf.GetSenha;
+    Fconn.Params.Add('Server='+Fconf.GetServidor);
+
+    if Fconf.GetDriverName.Equals('SQLite') then
+      Fconn.Params.Add('lockingMode=Normal');
+
 
   except
     raise Exception.Create('Erro ao realizar a conexão com o banco de dados!');
