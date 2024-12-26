@@ -1,0 +1,34 @@
+unit mvc.utils.imple.rttihelper;
+
+uses
+  System.Rtti;
+
+interface
+
+type
+  TRttiTypeHelper = class helper for TRttiType
+    function Tem<T: TCustomAttribute>: Boolean;
+    function GetAttibute<T: TCustomAttribute>:T;
+  end;
+
+
+implementation
+
+{ TRttiTypeHelper }
+
+function TRttiTypeHelper.GetAttibute<T>: T;
+var
+  lAtributo: TCustomAttribute;
+begin
+  Result:= nil;
+  for lAtributo in GetAttributes do
+    if lAtributo is T then
+      exit(lAtributo as T);
+end;
+
+function TRttiTypeHelper.Tem<T>: Boolean;
+begin
+
+end;
+
+end.

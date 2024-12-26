@@ -3,14 +3,21 @@ unit mvc.model.entity.imple.cliente;
 interface
 
 uses
+  mvc.utils.imple.rttiatributos,
   mvc.model.entity.interfaces;
 
 type
+  [Tabela('CLIENTE')]
   TCliente = class(TInterfacedObject, iCliente)
   private
+
+    [Campo('CODIGO')]
     FCodigo: integer;
+    [Campo('NOME')]
     FNome: string;
+    [Campo('CIDADE')]
     FCidade: string;
+    [Campo('ESTADO')]
     FEstado: string;
   public
     class function New: iCliente;

@@ -14,3 +14,14 @@ Os uses estão em outro lugar.
 
 
 ExtractFilePath(ParamStr(0)) // pega o local do .exe  
+
+MVC Tips #2: RTTI e Fundamentos do Delphi para um DAO Atraente 
+
+Data Access Object ( sub camada do Model no MVC )
+CRUD (Create, Read, Update, Delete);
+
+ao criar um objeto é de sua responsabilidade destruir ele.
+
+// Parent é interface ( imagem, gráfico, contrato )
+
+MVC Tips #3 Modelagem do Banco de dados
