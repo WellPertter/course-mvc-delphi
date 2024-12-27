@@ -7,20 +7,19 @@ uses
   mvc.model.dao.interfaces;
 
 type
-  TDao<T: Iinterface> = class(TInterfacedObject, iDao<T>)
-
+  TDao = class(TInterfacedObject, iDAO)
   private
-    constructor Create;
-    destructor Destroy; override;
-
+    FParent: IInterface;
   public
-    class function New: iDao<T>;
+    constructor Create(Parent: IInterface);
+    destructor Destroy; override;
+    class function New(Parent: IInterface): iDao;
 
-    function Listar: iDAO<T>;
-    function ListarPorId(Id: Variant): iDAO<T>;
-    function Excluir: iDAO<T>;
-    function Atualizar: iDAO<T>;
-    function Inserir: iDAO<T>;
+    function Listar: iDAO;
+    function ListarPorId: iDAO;
+    function Excluir: iDAO;
+    function Atualizar: iDAO;
+    function Inserir: iDAO;
     function DataSet: TDataset;
   end;
 
@@ -29,50 +28,50 @@ implementation
 
 { TDao<T> }
 
-function TDao<T>.Atualizar: iDAO<T>;
+function TDao.Atualizar: iDAO;
 begin
 
 end;
 
-constructor TDao<T>.Create;
+constructor TDao.Create(Parent: IInterface);
+begin
+  FParent := Parent;
+end;
+
+function TDao.DataSet: TDataset;
 begin
 
 end;
 
-function TDao<T>.DataSet: TDataset;
-begin
-
-end;
-
-destructor TDao<T>.Destroy;
+destructor TDao.Destroy;
 begin
 
   inherited;
 end;
 
-function TDao<T>.Excluir: iDAO<T>;
+function TDao.Excluir: iDAO;
 begin
 
 end;
 
-function TDao<T>.Inserir: iDAO<T>;
+function TDao.Inserir: iDAO;
 begin
 
 end;
 
-function TDao<T>.Listar: iDAO<T>;
+function TDao.Listar: iDAO;
 begin
 
 end;
 
-function TDao<T>.ListarPorId(Id: Variant): iDAO<T>;
+function TDao.ListarPorId: iDAO;
 begin
 
 end;
 
-class function TDao<T>.New: iDao<T>;
+class function TDao.New(Parent: IInterface): iDao;
 begin
-
+  Result := self.Create((Parent));
 end;
 
 end.

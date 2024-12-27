@@ -1,0 +1,78 @@
+unit mvc.model.dao.imple.generico;
+
+interface
+
+uses
+  Data.DB,
+  mvc.model.dao.interfaces;
+
+type
+  TDao = class(TInterfacedObject, iDao)
+
+  private
+    constructor Create;
+    destructor Destroy; override;
+
+  public
+    class function New: iDao;
+
+    function Listar: iDAO;
+    function ListarPorId(Id: Variant): iDAO;
+    function Excluir: iDAO;
+    function Atualizar: iDAO;
+    function Inserir: iDAO;
+    function DataSet: TDataset;
+  end;
+
+implementation
+
+
+{ TDao<T> }
+
+function TDao.Atualizar: iDAO;
+begin
+
+end;
+
+constructor TDao.Create;
+begin
+
+end;
+
+function TDao.DataSet: TDataset;
+begin
+
+end;
+
+destructor TDao.Destroy;
+begin
+
+  inherited;
+end;
+
+function TDao.Excluir: iDAO;
+begin
+
+end;
+
+function TDao.Inserir: iDAO;
+begin
+
+end;
+
+function TDao.Listar: iDAO;
+begin
+
+end;
+
+function TDao.ListarPorId(Id: Variant): iDAO;
+begin
+
+end;
+
+class function TDao.New: iDao;
+begin
+
+end;
+
+end.

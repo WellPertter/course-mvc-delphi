@@ -33,3 +33,19 @@ banco de dados estruturado( imagem, xml, algo assim), inclusive para clientes en
 é uma forma de documentar o sistema.
 
 OBS: Aprender a usar mais bancos de dados
+
+MVC Tips #4 Classes Controladoras no Delphi
+
+
+Controle é a classe que vai fazer o meio de campo( Entre o model e a view)
+
+
+
+
+
+
+
+
+
+
+

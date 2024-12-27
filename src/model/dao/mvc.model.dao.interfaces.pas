@@ -6,13 +6,13 @@ uses
   Data.DB;
 
 type
- iDAO<T: Iinterface> = interface
+ iDAO = interface
    ['{9B9FC941-A967-4CE4-BF89-D72F2C4E7818}']
-   function Listar: iDAO<T>;
-   function ListarPorId(Id: Variant): iDAO<T>;
-   function Excluir: iDAO<T>;
-   function Atualizar: iDAO<T>;
-   function Inserir: iDAO<T>;
+   function Listar: iDAO;
+   function ListarPorId: iDAO;
+   function Excluir: iDAO;
+   function Atualizar: iDAO;
+   function Inserir: iDAO;
    function DataSet: TDataset;
  end;
 

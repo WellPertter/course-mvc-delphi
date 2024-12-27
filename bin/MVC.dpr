@@ -18,7 +18,9 @@ uses
   mvc.utils.interfaces in '..\src\utils\mvc.utils.interfaces.pas',
   mvc.utils.imple.query in '..\src\utils\imple\mvc.utils.imple.query.pas',
   mvc.utils.imple.rttihelper in '..\src\utils\imple\mvc.utils.imple.rttihelper.pas',
-  mvc.utils.imple.rttiatributos in '..\src\utils\imple\mvc.utils.imple.rttiatributos.pas';
+  mvc.utils.imple.rttiatributos in '..\src\utils\imple\mvc.utils.imple.rttiatributos.pas',
+  mvc.controller.interfaces in '..\src\controller\mvc.controller.interfaces.pas',
+  mvc.controller.impl in '..\src\controller\impl\mvc.controller.impl.pas';
 
 {$R *.res}
 
