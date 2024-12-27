@@ -25,3 +25,11 @@ ao criar um objeto é de sua responsabilidade destruir ele.
 // Parent é interface ( imagem, gráfico, contrato )
 
 MVC Tips #3 Modelagem do Banco de dados
+
+No requisito de uma contratação, fazer conforme pedido( inclusive nos detalhes)
+
+Obs: Na hora de enviar o projeto que foi propósto para ser feita, enviar o modelo do
+banco de dados estruturado( imagem, xml, algo assim), inclusive para clientes entenderem,
+é uma forma de documentar o sistema.
+
+OBS: Aprender a usar mais bancos de dados
