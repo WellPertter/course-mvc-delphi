@@ -17,7 +17,7 @@ type
     FNome: string;
     [Campo('CIDADE')]
     FCidade: string;
-    [Campo('ESTADO')]
+    [Campo('UF')]
     FEstado: string;
   public
     class function New: iCliente;

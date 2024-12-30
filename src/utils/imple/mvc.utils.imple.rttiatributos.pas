@@ -21,6 +21,14 @@ type
     constructor Create(AName: string);
     property Name: String read Fname;
   end;
+
+  PK = class(TCustomAttribute)
+  private
+    Fname: String;
+  public
+    constructor Create(AName: string);
+    property Name: String read Fname;
+  end;
 implementation
 
 { campo }
@@ -33,6 +41,13 @@ end;
 { TTabela }
 
 constructor Tabela.Create(AName: string);
+begin
+  Fname := AName;
+end;
+
+{ PK }
+
+constructor PK.Create(AName: string);
 begin
   Fname := AName;
 end;

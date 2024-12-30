@@ -5,6 +5,8 @@ interface
 uses
   mvc.model.connection.interfaces,
   Data.DB,
+  FireDAC.Stan.Def,
+  FireDAC.DApt,
   FireDAC.Comp.Client;
 
 type
@@ -12,13 +14,14 @@ type
   private
     FQuery: TFDQuery;
 
+
+  public
     procedure PreencheQuery(Value: String);
     procedure PreencheParams(Value: array of Variant);
 
 
     constructor Create(Conn: iConnection);
     destructor Destroy; override;
-  public
     class function New(Conn: iConnection): iQuery;
     procedure Query(const Statement: String; Params: Array of Variant); overload;
     function Query(const Statement: Variant; Params: Array of Variant): TDataSet; overload;
@@ -53,7 +56,6 @@ begin
     FQuery.Params.Add;
     FQuery.Params[I].value := Value[I];
   end;
-
 
 end;
 

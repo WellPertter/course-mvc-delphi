@@ -3,13 +3,23 @@ unit mvc.model.connection.impl.firedac;
 interface
 
 uses
+  mvc.model.connection.interfaces,
+  mvc.model.connection.impl.configuration,
   Data.DB,
+  FireDAC.Stan.Def,
+  FireDAC.DApt,
   FireDAC.Comp.Client,
   FireDAC.Comp.DataSet,
   FireDAC.Comp.UI,
-  mvc.model.connection.interfaces,
-  mvc.model.connection.impl.configuration,
-  System.SysUtils;
+  System.SysUtils,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Param,
+  FireDAC.Stan.Error,
+  FireDAC.Stan.Async,
+  FireDAC.VCLUI.Wait,
+  FireDAC.Phys.MySQL,
+  FireDAC.Phys.SQLite;
 
 type
   TConnectionFireDac = class(TInterfacedObject, iConnection)
@@ -26,6 +36,9 @@ type
 
 implementation
 
+uses
+  System.Classes;
+
 
 { TConnectionFireDac }
 
@@ -36,19 +49,31 @@ end;
 
 constructor TConnectionFireDac.Create;
 begin
+
   Fconn := TFDConnection.Create(nil);
-  Fconf := TConfiguration.New(ExtractFilePath(ParamStr(0)));
+  Fconf := TConfiguration.New(ExtractFilePath(ParamStr(0)) + 'config.ini');
   try
     Fconn.Params.Clear;
+    Fconn.Params.DriverID := 'SQLITE';// Fconf.GetDriverName;
+    Fconn.Params.Database := 'C:\Users\José Arthur\Desktop\course-mvc-delphi\database\dados.sdb.db';// Fconf.GetCaminho;
+    Fconn.Params.UserName := '';// Fconf.GetUsuario;
+    Fconn.Params.Password := '';// Fconf.GetSenha;
+        {
     Fconn.Params.DriverID := Fconf.GetDriverName;
+    Fconn.Params.Database := Fconf.GetCaminho;
     Fconn.Params.UserName := Fconf.GetUsuario;
-    Fconn.Params.Password := Fconf.GetSenha;
-    Fconn.Params.Add('Server='+Fconf.GetServidor);
+    Fconn.Params.Password := Fconf.GetSenha;       }
+    Fconn.Params.Add('LibraryName=C:SGQ\libmysql.dll');
+
+   // Fconn.Params.Add('Server='+Fconf.GetServidor);
 
     if Fconf.GetDriverName.Equals('SQLite') then
       Fconn.Params.Add('lockingMode=Normal');
 
 
+    //RegisterComponents('Data Access', [TFDPhysSQLiteDriverLink]);
+
+    Fconn.Connected := True;
   except
     raise Exception.Create('Erro ao realizar a conexão com o banco de dados!');
   end;

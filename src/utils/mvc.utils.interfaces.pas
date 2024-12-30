@@ -2,6 +2,9 @@ unit mvc.utils.interfaces;
 
 interface
 
+uses
+  System.Generics.Collections;
+
 type
   iQuery = interface
     ['{032FA498-D163-419C-AFB0-DDE0A4432DF7}']
@@ -9,6 +12,11 @@ type
     function Update: string;
     function Delete: string;
     function Select: string;
+    function SelectWithWhere(value: boolean): string;
+    procedure FieldParameter(var Value: TDictionary<String, Variant>);
+
+
+
   end;
 
   iUtils = interface

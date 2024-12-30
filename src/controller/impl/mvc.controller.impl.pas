@@ -56,7 +56,7 @@ end;
 
 class function TController.New: iController;
 begin
-
+  Result := Self.Create;
 end;
 
 end.
