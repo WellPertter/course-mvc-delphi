@@ -54,7 +54,12 @@ begin
   for var I := Low(Value) to High(Value) do
   begin
     FQuery.Params.Add;
-    FQuery.Params[I].value := Value[I];
+
+
+   // FQuery.Params[I].DataType := ft;
+
+    FQuery.Params[I].Value := Value[I];
+
   end;
 
 end;

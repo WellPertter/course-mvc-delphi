@@ -51,27 +51,19 @@ constructor TConnectionFireDac.Create;
 begin
 
   Fconn := TFDConnection.Create(nil);
-  Fconf := TConfiguration.New(ExtractFilePath(ParamStr(0)) + 'config.ini');
+  Fconf := TConfiguration.New(ExtractFilePath(ParamStr(0)) + 'conf.ini');
   try
     Fconn.Params.Clear;
-    Fconn.Params.DriverID := 'SQLITE';// Fconf.GetDriverName;
-    Fconn.Params.Database := 'C:\Users\José Arthur\Desktop\course-mvc-delphi\database\dados.sdb.db';// Fconf.GetCaminho;
-    Fconn.Params.UserName := '';// Fconf.GetUsuario;
-    Fconn.Params.Password := '';// Fconf.GetSenha;
-        {
     Fconn.Params.DriverID := Fconf.GetDriverName;
     Fconn.Params.Database := Fconf.GetCaminho;
     Fconn.Params.UserName := Fconf.GetUsuario;
-    Fconn.Params.Password := Fconf.GetSenha;       }
-    Fconn.Params.Add('LibraryName=C:SGQ\libmysql.dll');
+    Fconn.Params.Password := Fconf.GetSenha;
 
+   // Fconn.Params.Add('LibraryName=C:SGQ\libmysql.dll');
    // Fconn.Params.Add('Server='+Fconf.GetServidor);
 
     if Fconf.GetDriverName.Equals('SQLite') then
       Fconn.Params.Add('lockingMode=Normal');
-
-
-    //RegisterComponents('Data Access', [TFDPhysSQLiteDriverLink]);
 
     Fconn.Connected := True;
   except

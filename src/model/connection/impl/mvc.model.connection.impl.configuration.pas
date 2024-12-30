@@ -18,7 +18,7 @@ type
     SERVIDOR = 'SERVIDOR';
     USUARIO = 'USERNAME';
     SENHA = 'PASSWORD';
-    DRIVERNAME = 'DRIVE';
+    DRIVERNAME = 'DRIVERNAME';
 
   private
     Farq: TiniFile;

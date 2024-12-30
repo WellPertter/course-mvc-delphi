@@ -103,6 +103,10 @@
     <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
         <DCC_RemoteDebug>false</DCC_RemoteDebug>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <DCC_DcuOutput>.\$(Platform)\</DCC_DcuOutput>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_ExeOutput>.\</DCC_ExeOutput>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
@@ -166,6 +170,16 @@
                 <Source>
                     <Source Name="MainSource">MVC.dpr</Source>
                 </Source>
+                <Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\VCL\Win32\dclfqbIBX29.bpl">FastQueryBuilder - IBX Engine by Fast Reports Inc</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\VCL\Win32\dclfrxIBX29.bpl">FastReport VCL - IBX Components by Fast Reports Inc</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\VCL\Win32\dclfsIBX29.bpl">FastScript VCL - IBX Components by Fast Reports Inc</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\VCL\Win32\frxIBXQueryBuilder29.bpl">FastReport VCL - FastQueryBuilder - IBX by Fast Reports Inc</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\FMX\Win32\dclFMXfrxIBX29.bpl">FastReport FMX - IBX Components by Fast Reports Inc</Excluded_Packages>
+                    <Excluded_Packages Name="C:\Program Files (x86)\Fast Reports\VCL\2025.1.1\Trial\LibRS29\FMX\Win32\dclFMXfsIBX29.bpl">FastScript FMX - IBX Components by Fast Reports Inc</Excluded_Packages>
+                </Excluded_Packages>
             </Delphi.Personality>
             <Deployment Version="4">
                 <DeployFile LocalName="Win32\Debug\MVC.exe" Configuration="Debug" Class="ProjectOutput">
